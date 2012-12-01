@@ -1,0 +1,30 @@
+[user]
+        name = Ting-Yu Lin
+        email = aethanyc@gmail.com
+[core]
+        editor = emacs
+        whitespace = cr-at-eol,tab-in-indent
+[color]
+        ui = true
+[alias]
+        back = reset --hard HEAD~1
+        br = branch -v
+        ca = commit --amend
+        ci = commit
+        co = checkout
+        current-branch = name-rev --name-only HEAD
+        fe = fetch
+        find = !sh -c 'git ls-tree -r --name-only HEAD | grep $1' -
+        g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        hd = log -1 --stat
+        ps = !git pu && git su
+        pu = pull
+        st = status
+        stash-unapply = !git stash show -p | git apply -R
+        su = submodule update --init
+        tracking-branch = rev-parse --abbrev-ref --symbolic-full-name @{u}
+        unstage = reset HEAD --
+[i18n]
+        filesEncoding = utf-8
+[branch]
+        autosetuprebase = always
