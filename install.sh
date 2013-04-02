@@ -1,6 +1,12 @@
 #!/bin/bash
 
-ln -i .bashrc ~/.bashrc
-ln -i .gitconfig ~/.gitconfig
+CURR_DIR=`pwd`
 
+echo "Install dotfiles"
+pushd ~
+
+ln -is ${CURR_DIR}/.bashrc
+ln -is ${CURR_DIR}/.gitconfig
+
+popd
 echo "Done!"
