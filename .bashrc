@@ -43,7 +43,7 @@ fi
 # Make the terminal colorful.
 TERM=xterm-256color
 
-# My alias
+# My aliases
 function u () {
     cd "$@" && ls --color -F
 }
@@ -51,6 +51,7 @@ function u () {
 alias aptitude='sudo aptitude'
 alias df='df -h'
 alias du='du -h'
+alias em='emacsclient -c -a emacs'
 alias g++='g++ -Wall -pedantic'
 alias gcc='gcc -Wall -pedantic'
 alias gg='clear && git status'
