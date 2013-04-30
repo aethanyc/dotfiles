@@ -44,10 +44,6 @@ fi
 TERM=xterm-256color
 
 # My aliases
-function u () {
-    cd "$@" && ls --color -F
-}
-
 alias aptitude='sudo aptitude'
 alias df='df -h'
 alias du='du -h'
@@ -59,3 +55,4 @@ alias h='ls --color -F'
 alias ha='ls --color -lhA'
 alias hh='ls --color -lhF'
 alias rm='rm -i'
+alias u='cd'
