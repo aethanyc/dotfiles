@@ -1,6 +1,9 @@
 # If not running interactively, don't do anything.
 [ -z "$PS1" ] && return
 
+# Add ~/bin to PATH
+PATH=~/bin:$PATH
+
 # Do not add duplicate history entry.
 HISTCONTROL=erasedups:ignoredups
 
