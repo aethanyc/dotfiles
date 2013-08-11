@@ -44,18 +44,24 @@ if ! shopt -oq posix; then
 fi
 
 # Make the terminal colorful.
-TERM=xterm-256color
+export TERM=xterm-256color
+
+# Let ls shows colors
+if [ "$(uname)" == "Darwin" ]; then
+    alias h='ls -GF'
+else
+    alias h='ls --color=auto -F'
+fi
 
 # My aliases
 alias aptitude='sudo aptitude'
 alias df='df -h'
 alias du='du -h'
-alias em='emacsclient -c -a emacs'
+alias ec='emacsclient -c -a emacs'
 alias g++='g++ -Wall -pedantic'
 alias gcc='gcc -Wall -pedantic'
 alias gg='clear && git status'
-alias h='ls --color -F'
-alias ha='ls --color -lhA'
-alias hh='ls --color -lhF'
+alias ha='h -hlA'
+alias hh='h -hlF'
 alias rm='rm -i'
 alias u='cd'
