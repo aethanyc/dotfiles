@@ -4,8 +4,19 @@
 # Add ~/bin to PATH
 PATH=~/bin:$PATH
 
+# The maximum number of lines contained in the history file.
+export HISTFILESIZE=20000
+
+# The number of commands to remember in the command  history
+export HISTSIZE=10000
+
 # Do not add duplicate history entry.
-HISTCONTROL=erasedups:ignoredups
+export HISTCONTROL=erasedups:ignoredups
+
+# If set, the history list is appended to the file named by the value
+# of the HISTFILE variable when the shell exits, rather than
+# overwriting the file.
+shopt -s histappend
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
