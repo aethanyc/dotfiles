@@ -1,8 +1,18 @@
 # If not running interactively, don't do anything.
 [ -z "$PS1" ] && return
 
+# http://unix.stackexchange.com/a/4973
+add_to_PATH () {
+    for d; do
+        case ":$PATH:" in
+            *":$d:"*) :;;
+            *) PATH=$PATH:$d;;
+        esac
+    done
+}
+
 # Add ~/bin to PATH
-PATH=~/bin:$PATH
+add_to_PATH $HOME/bin
 
 # The maximum number of lines contained in the history file.
 export HISTFILESIZE=20000
