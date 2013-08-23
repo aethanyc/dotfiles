@@ -38,22 +38,47 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # Get the current git branch name.
-function parse_git_branch {
+function parse_git_branch () {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-# Set a fancy prompt, and add git branch name to it.
-PS1='\[\e[01;30m\]________________________________________________________________________________\n\[\e[01;34m\][\w]$(parse_git_branch)\n\[\e[01;32m\]\u@\h\[\e[00m\]\$ '
+# Set a fancy prompt.
+function prompt_command () {
+    # Reference:
+    # https://makandracards.com/makandra/1090-customize-your-bash-prompt
+    # http://stackoverflow.com/q/103857
+    EXITSTATUS="$?"
+    LINE="`eval printf "%.s_" {1..$COLUMNS}`"
 
-# Commented out, don't overwrite xterm -T "title" -n "icontitle" by default.
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-   PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-   ;;
-*)
-   ;;
-esac
+    OFF="\[\e[0m\]"
+    BOLD="\[\e[1m\]"
+    BLACK="\[\e[30m\]"
+    RED="\[\e[31m\]"
+    GREEN="\[\e[32m\]"
+    YELLOW="\[\e[33m\]"
+    MAGENTA="\[\e[34m\]"
+    BLUE="\[\e[35m\]"
+    CYAN="\[\e[36m\]"
+    WHITE="\[\e[37m\]"
+
+    # Print a line to separate the previous command.
+    PS1="${LINE}\n"
+
+    # Print user name, host name, working directory, and git branch name.
+    PS1+="${BOLD}${MAGENTA}\u@\h: ${BLUE}\w${GREEN}`parse_git_branch`\n"
+
+    # If the last command is success, print a green 'V'. Otherwise, print a red 'X'.
+    if [ "${EXITSTATUS}" = 0 ]; then
+        PS1+="${GREEN}V "
+    else
+        PS1+="${RED}X "
+    fi
+
+    # Finally, reset the face, and print a prompt sign.
+    PS1+="${OFF}\$ "
+}
+
+PROMPT_COMMAND=prompt_command
 
 # Enable bash completion in interactive shells.
 if ! shopt -oq posix; then
