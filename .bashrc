@@ -88,3 +88,8 @@ alias ha='h -hlA'
 alias hh='h -hlF'
 alias rm='rm -i'
 alias u='cd'
+
+# Source my private bash script
+if [ -f ~/.bashrc_private ]; then
+   . ~/.bashrc_private
+fi
