@@ -2,17 +2,17 @@
 [ -z "$PS1" ] && return
 
 # http://unix.stackexchange.com/a/4973
-add_to_PATH () {
+add_path () {
     for d; do
         case ":$PATH:" in
             *":$d:"*) :;;
-            *) PATH=$PATH:$d;;
+            *) PATH=:$d:$PATH;;
         esac
     done
 }
 
 # Add ~/bin to PATH
-add_to_PATH $HOME/bin
+add_path $HOME/bin
 
 # Pretty print path
 function print_path () {
