@@ -14,6 +14,11 @@ add_to_PATH () {
 # Add ~/bin to PATH
 add_to_PATH $HOME/bin
 
+# Pretty print path
+function print_path () {
+    echo $PATH | tr ':' '\n' | awk '{print "["NR"]"$0}'
+}
+
 # The maximum number of lines contained in the history file.
 export HISTFILESIZE=20000
 
