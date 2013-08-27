@@ -96,8 +96,10 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# Make the terminal colorful.
-export TERM=xterm-256color
+# Make the terminal more colorful.
+if [ "$TERM" = "xterm" ]; then
+    TERM=xterm-256color
+fi
 
 # Let ls shows colors
 if [ "$(uname)" == "Darwin" ]; then
