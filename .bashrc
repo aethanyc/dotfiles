@@ -108,6 +108,7 @@ else
     alias h='ls --color=auto -F'
 fi
 
+
 # My aliases
 alias aptitude='sudo aptitude'
 alias df='df -h'
@@ -115,11 +116,31 @@ alias du='du -h'
 alias ec='emacsclient -c -a emacs'
 alias g++='g++ -Wall -pedantic'
 alias gcc='gcc -Wall -pedantic'
-alias gg='clear && git status'
 alias ha='h -hlA'
 alias hh='h -hlF'
 alias rm='rm -i'
 alias u='cd'
+
+
+# Git aliases
+alias ga='git add'
+alias gb='git branch -v'
+alias gbm='git branch -m'
+alias gca='git commit --amend'
+alias gcp='git cherry-pick'
+alias gci='git commit'
+alias gco='git checkout'
+alias gdi='git difftool'
+alias gf='git fetch'
+alias ghd='git log -1 --stat'
+alias glg='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
+alias gpu='git pull'
+alias grh='git reset HEAD~'
+alias grhh='git reset --hard HEAD~'
+alias gs='git status'
+alias gsu='git submodule update --init'
+alias gus='git reset' # g'us' stands for unstage
+
 
 # Source my private bash script
 if [ -f ~/.bashrc_private ]; then
