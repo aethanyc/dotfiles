@@ -124,22 +124,23 @@ alias u='cd'
 
 # Git aliases
 alias ga='git add'
+alias gbk='git reset HEAD~'     # g'bk' stands for back
+alias gbkh='git reset --hard HEAD~'
 alias gbr='git branch -v'
 alias gbrm='git branch -m'
 alias gca='git commit --amend'
-alias gcp='git cherry-pick'
 alias gci='git commit'
 alias gco='git checkout'
-alias gdi='git difftool'
+alias gcp='git cherry-pick'
+alias gdd='git difftool -d'
 alias gfe='git fetch'
 alias ghd='git log -1 --stat'
 alias glg='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 alias gpu='git pull'
-alias grh='git reset HEAD~'
-alias grhh='git reset --hard HEAD~'
+alias grhh='git reset --hard HEAD'
 alias gst='git status'
 alias gsu='git submodule update --init'
-alias gus='git reset' # g'us' stands for unstage
+alias gus='git reset'           # g'us' stands for unstage
 
 
 # Source my private bash script
