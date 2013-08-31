@@ -153,6 +153,9 @@ fi
 # Call this function after both bash completion and alias definitions have been set up.
 # http://superuser.com/a/437508
 function alias_completion {
+    # Bail out if mktemp does not exist.
+    [ -z "$(type -p mktemp)" ] && return
+
     local namespace="alias_completion"
 
     # parse function based completion definitions, where capture group 2 => function and 3 => trigger
@@ -165,8 +168,8 @@ function alias_completion {
     (( ${#completions[@]} == 0 )) && return 0
 
     # create temporary file for wrapper functions and completions
-    rm -f "/tmp/${namespace}-*.tmp" # preliminary cleanup
-    local tmp_file="$(mktemp "/tmp/${namespace}-${RANDOM}.tmp")" || return 1
+    rm -f "/tmp/${namespace}.*" # preliminary cleanup
+    local tmp_file="$(mktemp "/tmp/${namespace}.XXXXXXXXXX")" || return 1
 
     # read in "<alias> '<aliased command>' '<command args>'" lines from defined aliases
     local line; while read line; do
@@ -178,7 +181,9 @@ function alias_completion {
         eval "local alias_arg_words=($alias_args)" 2>/dev/null || continue
 
         # skip alias if there is no completion function triggered by the aliased command
-        [[ " ${completions[*]} " =~ " $alias_cmd " ]] || continue
+        if [ "${completions[*]}" != "$alias_cmd" ]; then
+             continue
+        fi
         local new_completion="$(complete -p "$alias_cmd")"
 
         # create a wrapper inserting the alias arguments if any
