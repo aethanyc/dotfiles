@@ -12,3 +12,5 @@
 	autosetuprebase = always
 [alias]
 	co = checkout
+[push]
+	default = simple
