@@ -14,3 +14,5 @@
 	co = checkout
 [push]
 	default = simple
+[magit]
+	extension = wip-save
