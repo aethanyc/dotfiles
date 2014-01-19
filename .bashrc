@@ -141,6 +141,7 @@ alias gpu='git pull'
 alias grhh='git reset --hard HEAD'
 alias gst='git status'
 alias gsu='git submodule update --init'
+alias gsur='git submodule update --init --recursive'
 alias gus='git reset'           # g'us' stands for unstage
 
 
