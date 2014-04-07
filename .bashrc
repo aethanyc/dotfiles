@@ -111,6 +111,8 @@ fi
 
 # My aliases
 alias aptitude='sudo aptitude'
+alias clang='clang -Wall -pedantic'
+alias clang++='clang++ -Wall -pedantic'
 alias df='df -h'
 alias du='du -h'
 alias ec='emacsclient -c -a emacs'
