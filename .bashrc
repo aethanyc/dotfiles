@@ -6,7 +6,7 @@ add_path () {
     for d; do
         case ":$PATH:" in
             *":$d:"*) :;;
-            *) PATH=:$d:$PATH;;
+            *) PATH=$d:$PATH;;
         esac
     done
 }
