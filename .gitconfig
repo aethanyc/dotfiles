@@ -13,7 +13,7 @@
 [alias]
 	co = checkout
 [push]
-	default = simple
+	default = current
 [magit]
 	extension = wip-save
 [merge]
