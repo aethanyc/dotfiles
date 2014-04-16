@@ -28,6 +28,9 @@ export HISTSIZE=10000
 # Do not add duplicate history entry.
 export HISTCONTROL=erasedups:ignoredups
 
+# Set a default editor
+export EDITOR=emacs
+
 # If set, the history list is appended to the file named by the value
 # of the HISTFILE variable when the shell exits, rather than
 # overwriting the file.
