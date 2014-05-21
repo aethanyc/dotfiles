@@ -118,6 +118,21 @@ elif [ -s `brew --prefix`/etc/autojump.sh ]; then
     . `brew --prefix`/etc/autojump.sh
 fi
 
+# Toggle hidden files shown/hidden on Mac OS X
+if [ "$(uname)" == "Darwin" ]; then
+    function toggle_hidden()
+    {
+        if [ "$(defaults read com.apple.finder AppleShowAllFiles)" == "TRUE" ]; then
+            echo "Hidden files have been hidden."
+            defaults write com.apple.finder AppleShowAllFiles FALSE
+        else
+            echo "Hidden files have been shown."
+            defaults write com.apple.finder AppleShowAllFiles TRUE
+        fi
+        killall Finder
+    }
+fi
+
 # My aliases
 alias aptitude='sudo aptitude'
 alias clang='clang -Wall -pedantic'
