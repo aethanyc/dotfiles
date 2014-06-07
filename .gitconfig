@@ -12,6 +12,7 @@
 	autosetuprebase = always
 [alias]
 	co = checkout
+	br = branch
 [push]
 	default = current
 [magit]
