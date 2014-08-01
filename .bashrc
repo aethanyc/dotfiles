@@ -73,7 +73,14 @@ function prompt_command () {
     PS1="${LINE}\n"
 
     # Print user name, host name, working directory, and git branch name.
-    PS1+="${BOLD}${MAGENTA}\u@\h: ${BLUE}\w${GREEN}`parse_git_branch`\n"
+    PS1+="${BOLD}${MAGENTA}\u@\h: ${BLUE}\w${GREEN}`parse_git_branch`"
+
+    # Append current Python's virtualenv name.
+    if [ "${VIRTUAL_ENV}" ]; then
+        PS1+=" (`basename ${VIRTUAL_ENV}`)"
+    fi
+
+    PS1+="\n"
 
     # If the last command is success, print a green 'V'. Otherwise, print a red 'X'.
     if [ "${EXITSTATUS}" = 0 ]; then
