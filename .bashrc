@@ -77,7 +77,7 @@ function prompt_command () {
 
     # Append current Python's virtualenv name.
     if [ "${VIRTUAL_ENV}" ]; then
-        PS1+=" (`basename ${VIRTUAL_ENV}`)"
+        PS1+=" ${GREEN}(`basename ${VIRTUAL_ENV}`)"
     fi
 
     PS1+="\n"
