@@ -64,8 +64,8 @@ function prompt_command () {
     RED="\[\e[31m\]"
     GREEN="\[\e[32m\]"
     YELLOW="\[\e[33m\]"
-    MAGENTA="\[\e[34m\]"
-    BLUE="\[\e[35m\]"
+    BLUE="\[\e[34m\]"
+    MAGENTA="\[\e[35m\]"
     CYAN="\[\e[36m\]"
     WHITE="\[\e[37m\]"
 
@@ -73,7 +73,7 @@ function prompt_command () {
     PS1="${LINE}\n"
 
     # Print user name, host name, working directory, and git branch name.
-    PS1+="${BOLD}${MAGENTA}\u@\h: ${BLUE}\w${GREEN}`parse_git_branch`"
+    PS1+="${BOLD}${BLUE}\u@\h: ${MAGENTA}\w${GREEN}`parse_git_branch`"
 
     # Append current Python's virtualenv name.
     if [ "${VIRTUAL_ENV}" ]; then
