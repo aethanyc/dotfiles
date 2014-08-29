@@ -57,6 +57,9 @@ if [ -f ~/.git-prompt.sh ]; then
 elif [ -n "$(type -p brew)" ] &&\
    [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
     . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+fi
+
+if [ -n "`declare -F __git_ps1`" ]; then
     export GIT_PS1_SHOWUPSTREAM="verbose name"
 fi
 
