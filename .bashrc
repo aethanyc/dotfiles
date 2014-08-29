@@ -50,6 +50,16 @@ function parse_git_branch () {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# Setup to use __git_ps1.
+# https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+if [ -f ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
+elif [ -n "$(type -p brew)" ] &&\
+   [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
+    . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+    export GIT_PS1_SHOWUPSTREAM="verbose name"
+fi
+
 # Set a fancy prompt.
 function prompt_command () {
     # Reference:
@@ -72,8 +82,15 @@ function prompt_command () {
     # Print a line to separate the previous command.
     PS1="${LINE}\n"
 
-    # Print user name, host name, working directory, and git branch name.
-    PS1+="${BOLD}${BLUE}\u@\h: ${MAGENTA}\w${GREEN}`parse_git_branch`"
+    # Print user name, host name, working directory.
+    PS1+="${BOLD}${BLUE}\u@\h: ${MAGENTA}\w"
+
+    # Print git branch name by __git_ps1 if available.
+    if [ -n "`declare -F __git_ps1`" ]; then
+        PS1+="${GREEN}`__git_ps1`"
+    else
+        PS1+="${GREEN}`parse_git_branch`"
+    fi
 
     # Append current Python's virtualenv name.
     if [ "${VIRTUAL_ENV}" ]; then
