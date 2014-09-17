@@ -15,7 +15,7 @@ add_path () {
 add_path $HOME/bin
 
 # Pretty print path
-function print_path () {
+print_path () {
     echo $PATH | tr ':' '\n' | awk '{print "["NR"]"$0}'
 }
 
@@ -46,7 +46,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # Get the current git branch name.
-function parse_git_branch () {
+parse_git_branch () {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
@@ -64,7 +64,7 @@ if [ -n "`declare -F __git_ps1`" ]; then
 fi
 
 # Set a fancy prompt.
-function prompt_command () {
+prompt_command () {
     # Reference:
     # https://makandracards.com/makandra/1090-customize-your-bash-prompt
     # http://stackoverflow.com/q/103857
@@ -147,8 +147,7 @@ fi
 
 # Toggle hidden files shown/hidden on Mac OS X
 if [ "$(uname)" == "Darwin" ]; then
-    function toggle_hidden()
-    {
+    toggle_hidden() {
         if [ "$(defaults read com.apple.finder AppleShowAllFiles)" == "TRUE" ]; then
             echo "Hidden files have been hidden."
             defaults write com.apple.finder AppleShowAllFiles FALSE
