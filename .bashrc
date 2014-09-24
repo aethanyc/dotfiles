@@ -141,8 +141,8 @@ fi
 # Use autojump if it's available.
 if [ -s ~/.autojump/etc/profile.d/autojump.sh ]; then
     . ~/.autojump/etc/profile.d/autojump.sh
-elif [ -s `brew --prefix`/etc/autojump.sh ]; then
-    . `brew --prefix`/etc/autojump.sh
+elif [ -n "$(type -p brew)" ] && [ -s $(brew --prefix)/etc/autojump.sh ]; then
+    . $(brew --prefix)/etc/autojump.sh
 fi
 
 # Toggle hidden files shown/hidden on Mac OS X
