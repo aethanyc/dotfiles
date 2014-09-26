@@ -198,6 +198,24 @@ alias gsu='git submodule update --init'
 alias gsur='git submodule update --init --recursive'
 alias gus='git reset'           # g'us' stands for unstage
 
+# Git alias completion
+if [ "$(declare -F __git_complete)" ]; then
+    __git_complete ga _git_add
+    __git_complete gbr _git_branch
+    __git_complete gbrm _git_branch
+    __git_complete gca _git_commit
+    __git_complete gci _git_commit
+    __git_complete gco _git_checkout
+    __git_complete gcp _git_cherry_pick
+    __git_complete gdd _git_difftool
+    __git_complete gdi _git_difftool
+    __git_complete gfe _git_fetch
+    __git_complete glg _git_log
+    __git_complete gla _git_log
+    __git_complete gpu _git_pull
+    __git_complete gus _git_reset
+fi
+
 
 # Source my private bash script
 if [ -f ~/.bashrc_private ]; then
