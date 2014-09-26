@@ -127,7 +127,7 @@ if ! shopt -oq posix; then
 fi
 
 # Make the terminal more colorful.
-if [ "$TERM" = "xterm" ]; then
+if [ "$TERM" == "xterm" ]; then
     TERM=xterm-256color
 fi
 
