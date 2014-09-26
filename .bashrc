@@ -55,7 +55,7 @@ parse_git_branch () {
 if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
 elif [ -n "$(type -p brew)" ] &&\
-   [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
+         [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
     . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 fi
 
@@ -219,5 +219,5 @@ fi
 
 # Source my private bash script
 if [ -f ~/.bashrc_private ]; then
-   . ~/.bashrc_private
+    . ~/.bashrc_private
 fi
