@@ -59,7 +59,7 @@ elif [ -n "$(type -p brew)" ] &&\
     . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 fi
 
-if [ -n "`declare -F __git_ps1`" ]; then
+if [ -n "$(declare -F __git_ps1)" ]; then
     export GIT_PS1_SHOWUPSTREAM="verbose name"
 fi
 
@@ -69,7 +69,7 @@ prompt_command () {
     # https://makandracards.com/makandra/1090-customize-your-bash-prompt
     # http://stackoverflow.com/q/103857
     EXITSTATUS="$?"
-    LINE="`eval printf "%.s_" {1..$COLUMNS}`"
+    LINE="$(eval printf "%.s_" {1..$COLUMNS})"
 
     OFF="\[\e[0m\]"
     BOLD="\[\e[1m\]"
@@ -89,15 +89,15 @@ prompt_command () {
     PS1+="${BOLD}${BLUE}\u@\h: ${MAGENTA}\w"
 
     # Print git branch name by __git_ps1 if available.
-    if [ -n "`declare -F __git_ps1`" ]; then
-        PS1+="${GREEN}`__git_ps1`"
+    if [ -n "$(declare -F __git_ps1)" ]; then
+        PS1+="${GREEN}$(__git_ps1)"
     else
-        PS1+="${GREEN}`parse_git_branch`"
+        PS1+="${GREEN}$(parse_git_branch)"
     fi
 
     # Append current Python's virtualenv name.
     if [ "${VIRTUAL_ENV}" ]; then
-        PS1+=" ${GREEN}(`basename ${VIRTUAL_ENV}`)"
+        PS1+=" ${GREEN}($(basename ${VIRTUAL_ENV}))"
     fi
 
     PS1+="\n"
@@ -121,7 +121,7 @@ if ! shopt -oq posix; then
         . /usr/share/bash-completion/bash_completion
     elif [ -f /etc/bash_completion ]; then
         . /etc/bash_completion
-    elif [ -n "$(type -p brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    elif [ -n $"(type -p brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
 fi
