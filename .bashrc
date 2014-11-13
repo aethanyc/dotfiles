@@ -31,6 +31,9 @@ export HISTCONTROL=erasedups:ignoredups
 # Set a default editor
 export EDITOR=emacs
 
+# Tell GLOBAL to treat *.h files as a C++ source file
+export GTAGSFORCECPP=1
+
 # If set, the history list is appended to the file named by the value
 # of the HISTFILE variable when the shell exits, rather than
 # overwriting the file.
