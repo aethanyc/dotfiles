@@ -29,3 +29,5 @@
 	cmd = emacs --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
 [difftool]
 	prompt = false
+[fetch]
+	prune = true
