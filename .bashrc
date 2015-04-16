@@ -46,6 +46,9 @@ shopt -s checkwinsize
 # Free Ctrl-s and Ctrl-q on terminal.
 stty -ixon -ixoff
 
+# Link Apps installed by `brew cask` to /Applications
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
