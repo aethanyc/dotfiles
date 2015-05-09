@@ -202,6 +202,7 @@ alias glg='git log --graph --date-order --pretty=format:"%Cred%h%Creset%C(yellow
 alias gla='glg --all'
 alias gpu='git pull'
 alias grhh='git reset --hard HEAD'
+alias gru='git remote update'
 alias gst='git status'
 alias gsu='git submodule update --init'
 alias gsur='git submodule update --init --recursive'
