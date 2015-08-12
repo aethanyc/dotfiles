@@ -182,6 +182,9 @@ alias ha='h -hlA'
 alias hh='h -hlF'
 alias rm='rm -i'
 alias u='cd'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 
 # Git aliases
