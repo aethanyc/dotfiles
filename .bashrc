@@ -211,6 +211,9 @@ alias gsu='git submodule update --init'
 alias gsur='git submodule update --init --recursive'
 alias gus='git reset'           # g'us' stands for unstage
 
+# Hg alias
+alias hlg='hg log -G'
+
 # Git alias completion
 if [ "$(declare -F __git_complete)" ]; then
     __git_complete ga _git_add
