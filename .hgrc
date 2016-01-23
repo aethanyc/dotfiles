@@ -1,7 +1,6 @@
 # -*- mode: conf; -*-
 [ui]
 username = Ting-Yu Lin <tlin@mozilla.com>
-verbose = true
 [bugzilla]
 username = tlin@mozilla.com
 [mozilla]
