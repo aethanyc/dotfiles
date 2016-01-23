@@ -12,6 +12,7 @@ unified = 8
 [extensions]
 bzexport = ~/.mozbuild/version-control-tools/hgext/bzexport
 color =
+evolve = ~/Projects/mutable-history/hgext/evolve.py
 firefoxtree = ~/.mozbuild/version-control-tools/hgext/firefoxtree
 hgwatchman = ~/.mozbuild/hgwatchman/hgwatchman
 histedit =
