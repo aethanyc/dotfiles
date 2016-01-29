@@ -40,3 +40,8 @@ qnew = -U
 [pager]
 pager = less -FRXd
 quiet = true
+[color]
+changeset.draft = red
+changeset.public = bold red
+grep.user = bold blue
+log.bookmark = yellow
