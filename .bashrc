@@ -104,6 +104,11 @@ prompt_command () {
         PS1+="${GREEN}$(parse_git_branch)"
     fi
 
+    HG_PS1="$(hg prompt '({bookmark}{status})')"
+    if [ "$?" -eq 0 ]; then
+        PS1+=" ${HG_PS1}"
+    fi
+
     # Append current Python's virtualenv name.
     if [ "${VIRTUAL_ENV}" ]; then
         PS1+=" ${GREEN}($(basename ${VIRTUAL_ENV}))"

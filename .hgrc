@@ -19,6 +19,7 @@ histedit =
 mq =
 mqext = ~/.mozbuild/version-control-tools/hgext/mqext
 pager =
+prompt = ~/Projects/hg-prompt/prompt.py
 purge =
 push-to-try = ~/.mozbuild/version-control-tools/hgext/push-to-try
 qimportbz = ~/.mozbuild/version-control-tools/hgext/qimportbz
