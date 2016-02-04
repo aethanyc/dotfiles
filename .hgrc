@@ -25,6 +25,7 @@ push-to-try = ~/.mozbuild/version-control-tools/hgext/push-to-try
 qimportbz = ~/.mozbuild/version-control-tools/hgext/qimportbz
 rebase =
 reviewboard = ~/.mozbuild/version-control-tools/hgext/reviewboard/client.py
+shelve =
 [experimental]
 clonebundles = true
 [alias]
