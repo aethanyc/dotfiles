@@ -11,8 +11,8 @@ add_path () {
     done
 }
 
-# Add ~/bin to PATH
 add_path $HOME/bin
+add_path $HOME/.cargo/bin
 
 # Pretty print path
 print_path () {
