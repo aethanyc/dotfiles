@@ -193,6 +193,7 @@ alias gbk='git reset HEAD~'     # g'bk' stands for back
 alias gbkh='git reset --hard HEAD~'
 alias gbr='git branch -v'
 alias gbrm='git branch -m'
+alias gbru='git branch -u origin/master'
 alias gca='git commit --amend'
 alias gci='git commit'
 alias gco='git checkout'
