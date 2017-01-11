@@ -60,11 +60,13 @@ parse_git_branch () {
 }
 
 # Setup to use __git_ps1.
-# https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 if [ -f ~/.git-prompt.sh ]; then
+    # Copy git-prompt.sh to HOME if the distribution doesn't have it.
+    # https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
     . ~/.git-prompt.sh
 elif [ -n "$(type -p brew)" ] &&\
          [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
+    # On macOS, git-prompt.sh is available via `brew install git`.
     . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 fi
 
