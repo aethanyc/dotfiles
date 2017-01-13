@@ -2,7 +2,6 @@
 	name = Ting-Yu Lin
 	email = aethanyc@gmail.com
 [core]
-	editor = emacsclient -c -a emacs
 	whitespace = cr-at-eol,tab-in-indent
 [color]
 	ui = true

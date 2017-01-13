@@ -14,6 +14,12 @@ add_path () {
 add_path $HOME/bin
 add_path $HOME/.cargo/bin
 
+if [ "$(uname)" == "Darwin" ]; then
+    # Use Emacs in Emacs.app.
+    add_path /Applications/Emacs.app/Contents/MacOS
+    add_path /Applications/Emacs.app/Contents/MacOS/bin
+fi
+
 # Pretty print path
 print_path () {
     echo $PATH | tr ':' '\n' | awk '{print "["NR"]"$0}'
@@ -29,7 +35,7 @@ export HISTSIZE=10000
 export HISTCONTROL=erasedups:ignoredups
 
 # Set a default editor
-export EDITOR=emacs
+export EDITOR="emacsclient -c -a emacs "
 
 # Tell GLOBAL to treat *.h files as a C++ source file
 export GTAGSFORCECPP=1
