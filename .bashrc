@@ -187,6 +187,11 @@ if [ -f ~/Projects/gecko-dev/python/mach/bash-completion.sh ]; then
     . ~/Projects/gecko-dev/python/mach/bash-completion.sh
 fi
 
+# Install via `pip install mozconfigwrapper`
+if [ -n "$(type -p mozconfigwrapper.sh)" ]; then
+    . $(type -p mozconfigwrapper.sh)
+fi
+
 # Mach alias for gecko.
 alias mb='./mach build'
 alias mbb='./mach build binaries'
