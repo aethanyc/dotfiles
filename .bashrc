@@ -176,6 +176,25 @@ if [ "$(uname)" == "Darwin" ]; then
     }
 fi
 
+# Settings for Mozilla development.
+add_path ~/.mozbuild/android-sdk-macosx/platform-tools
+add_path ~/.mozbuild/android-sdk-macosx/tools
+add_path ~/.mozbuild/version-control-tools/git/commands
+add_path ~/Projects/git-cinnabar
+add_path ~/Projects/moz-git-tools
+
+if [ -f ~/Projects/gecko-dev/python/mach/bash-completion.sh ]; then
+    . ~/Projects/gecko-dev/python/mach/bash-completion.sh
+fi
+
+# Mach alias for gecko.
+alias mb='./mach build'
+alias mbb='./mach build binaries'
+alias mbf='./mach build faster'
+alias md='./mach package && ./mach install && ./mach run'
+alias mr='./mach run'
+alias mrl='./mach run -layoutdebug'
+
 # My aliases
 alias aptitude='sudo aptitude'
 alias clang='clang -Wall -pedantic'

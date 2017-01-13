@@ -30,3 +30,5 @@
 	prompt = false
 [fetch]
 	prune = true
+[cinnabar]
+	helper = ~/Projects/git-cinnabar/git-cinnabar-helper
