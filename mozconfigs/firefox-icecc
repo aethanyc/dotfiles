@@ -1,5 +1,6 @@
 # Build Firefox Desktop using IceCC
 
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox-icecc
 mk_add_options AUTOCLOBBER=1
 mk_add_options 'export CCACHE_PREFIX=icecc'
 mk_add_options MOZ_MAKE_FLAGS="-j30"

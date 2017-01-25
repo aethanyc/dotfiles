@@ -1,5 +1,6 @@
 # Build Firefox Desktop
 
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox
 mk_add_options AUTOCLOBBER=1
 
 ac_add_options --with-ccache
