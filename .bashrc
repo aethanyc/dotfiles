@@ -156,9 +156,9 @@ else
 fi
 
 # Use autojump if it's available.
-if [ -s ~/.autojump/etc/profile.d/autojump.sh ]; then
-    . ~/.autojump/etc/profile.d/autojump.sh
-elif [ -n "$(type -p brew)" ] && [ -s $(brew --prefix)/etc/autojump.sh ]; then
+if [ -f /usr/share/autojump/autojump.sh ]; then
+    . /usr/share/autojump/autojump.sh
+elif [ -n "$(type -p brew)" ] && [ -f $(brew --prefix)/etc/autojump.sh ]; then
     . $(brew --prefix)/etc/autojump.sh
 fi
 
