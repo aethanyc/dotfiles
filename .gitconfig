@@ -32,3 +32,5 @@
 	prune = true
 [cinnabar]
 	helper = ~/Projects/git-cinnabar/git-cinnabar-helper
+[pull]
+	rebase = true
