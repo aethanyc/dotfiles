@@ -1,0 +1,9 @@
+# Build Firefox Desktop (stylo)
+
+. $HOME/.mozconfigs/browser-common
+
+ac_add_options --enable-stylo
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-stylo
+
+export LLVM_CONFIG=/usr/local/opt/llvm/bin/llvm-config
