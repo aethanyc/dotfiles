@@ -105,6 +105,11 @@ prompt_command () {
     # Print user name, host name, working directory.
     PS1+="${BOLD}${BLUE}\u@\h: ${MAGENTA}\w"
 
+    # Append current mozconfig's name if in gecko-dev.
+    if [ -n "$(type -p mozconfig)" ] && [ "$(basename $(pwd))" == "gecko-dev" ]; then
+        PS1+=" ${GREEN}($(basename $(mozconfig)))"
+    fi
+
     # Print git branch name by __git_ps1 if available.
     if [ -n "$(declare -F __git_ps1)" ]; then
         PS1+="${GREEN}$(__git_ps1)"
