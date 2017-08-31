@@ -5,6 +5,4 @@
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox-icecc
 mk_add_options 'export CCACHE_PREFIX=icecc'
 mk_add_options MOZ_MAKE_FLAGS="-j30"
-
-export CC="gcc"
-export CXX="g++"
+mk_add_options "export RUSTC_WRAPPER=sccache" # cargo install sccache
