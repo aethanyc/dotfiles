@@ -15,6 +15,10 @@ add_path $HOME/bin
 add_path $HOME/.cargo/bin
 
 if [ "$(uname)" == "Darwin" ]; then
+    # Need makeinfo to build Emacs.
+    # brew install texinfo
+    add_path /usr/local/opt/texinfo/bin
+
     # Use Emacs in Emacs.app.
     add_path /Applications/Emacs.app/Contents/MacOS
     add_path /Applications/Emacs.app/Contents/MacOS/bin
