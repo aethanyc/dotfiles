@@ -207,7 +207,7 @@ alias mbb='./mach build binaries'
 alias mbf='./mach build faster'
 alias md='./mach package && ./mach install && ./mach run'
 alias mr='./mach run'
-alias mrl='./mach run -layoutdebug'
+alias mrl='./mach run -layoutdebug --disable-e10s'
 
 # My aliases
 alias aptitude='sudo aptitude'
