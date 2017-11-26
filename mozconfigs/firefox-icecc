@@ -2,6 +2,9 @@
 
 . $HOME/.mozconfigs/browser-common
 
+ac_add_options --enable-debug
+ac_add_options --disable-optimize
+
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox-icecc
 mk_add_options 'export CCACHE_PREFIX=icecc'
 mk_add_options MOZ_MAKE_FLAGS="-j30"
