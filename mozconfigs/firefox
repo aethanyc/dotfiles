@@ -6,4 +6,3 @@ ac_add_options --enable-debug
 ac_add_options --disable-optimize
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox
-mk_add_options "export RUSTC_WRAPPER=sccache" # cargo install sccache
