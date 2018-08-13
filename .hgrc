@@ -13,7 +13,7 @@ showfunc = true
 unified = 8
 [extensions]
 bzexport = ~/.mozbuild/version-control-tools/hgext/bzexport
-evolve = ~/Projects/evolve/hgext/evolve.py
+evolve =
 firefoxtree = ~/.mozbuild/version-control-tools/hgext/firefoxtree
 fsmonitor =
 histedit =
