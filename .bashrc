@@ -189,9 +189,8 @@ fi
 # Settings for Mozilla development.
 add_path ~/.mozbuild/android-sdk-macosx/platform-tools
 add_path ~/.mozbuild/android-sdk-macosx/tools
-add_path ~/.mozbuild/version-control-tools/git/commands
+add_path ~/.mozbuild/git-cinnabar
 add_path ~/Projects/arcanist/bin
-add_path ~/Projects/git-cinnabar
 add_path ~/Projects/moz-git-tools
 
 if [ -f ~/Projects/gecko-dev/python/mach/bash-completion.sh ]; then
