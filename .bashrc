@@ -193,8 +193,8 @@ add_path ~/.mozbuild/git-cinnabar
 add_path ~/Projects/arcanist/bin
 add_path ~/Projects/moz-git-tools
 
-if [ -f ~/Projects/gecko-dev/python/mach/bash-completion.sh ]; then
-    . ~/Projects/gecko-dev/python/mach/bash-completion.sh
+if [ -f ~/Projects/gecko/python/mach/bash-completion.sh ]; then
+    . ~/Projects/gecko/python/mach/bash-completion.sh
 fi
 
 # Install via `pip install mozconfigwrapper`
