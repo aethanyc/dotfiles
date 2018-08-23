@@ -110,8 +110,8 @@ prompt_command () {
     # Print user name, host name, working directory.
     PS1+="${BOLD}${BLUE}\u@\h: ${MAGENTA}\w"
 
-    # Append current mozconfig's name if in gecko-dev.
-    if [ -n "$(type -p mozconfig)" ] && [ "$(basename $(pwd))" == "gecko-dev" ]; then
+    # Append current mozconfig's name if in gecko.
+    if [ -n "$(type -p mozconfig)" ] && [ "$(basename $(pwd))" == "gecko" ]; then
         PS1+=" ${GREEN}($(basename $(mozconfig)))"
     fi
 
