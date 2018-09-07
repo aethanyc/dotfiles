@@ -11,6 +11,11 @@ add_path () {
     done
 }
 
+# Pretty print path
+print_path () {
+    echo $PATH | tr ':' '\n' | awk '{print "["NR"]"$0}'
+}
+
 # https://stackoverflow.com/a/10737906
 include () {
     [[ -f "$1" ]] && source "$1"
@@ -20,6 +25,18 @@ add_path $HOME/bin
 add_path $HOME/.cargo/bin
 
 if [ "$(uname)" == "Darwin" ]; then
+    # Toggle hidden files shown/hidden on Mac OS X
+    toggle_hidden() {
+        if [ "$(defaults read com.apple.finder AppleShowAllFiles)" == "TRUE" ]; then
+            echo "Hidden files have been hidden."
+            defaults write com.apple.finder AppleShowAllFiles FALSE
+        else
+            echo "Hidden files have been shown."
+            defaults write com.apple.finder AppleShowAllFiles TRUE
+        fi
+        killall Finder
+    }
+
     # Need makeinfo to build Emacs.
     # brew install texinfo
     add_path /usr/local/opt/texinfo/bin
@@ -28,11 +45,6 @@ if [ "$(uname)" == "Darwin" ]; then
     add_path /Applications/Emacs.app/Contents/MacOS
     add_path /Applications/Emacs.app/Contents/MacOS/bin
 fi
-
-# Pretty print path
-print_path () {
-    echo $PATH | tr ':' '\n' | awk '{print "["NR"]"$0}'
-}
 
 # The maximum number of lines contained in the history file.
 export HISTFILESIZE=20000
@@ -62,6 +74,9 @@ shopt -s checkwinsize
 # Free Ctrl-s and Ctrl-q on terminal.
 stty -ixon -ixoff
 
+# Homebrew's install path, defaults to /usr/local.
+HOMEBREW_PATH=$(brew --prefix)
+
 # Link Apps installed by `brew cask` to /Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -70,21 +85,9 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Get the current git branch name.
-parse_git_branch () {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-# Setup to use __git_ps1.
-if [ -f ~/.git-prompt.sh ]; then
-    # Copy git-prompt.sh to HOME if the distribution doesn't have it.
-    # https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-    . ~/.git-prompt.sh
-elif [ -n "$(type -p brew)" ] &&\
-         [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
-    # On macOS, git-prompt.sh is available via `brew install git`.
-    . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
-fi
+# Setup to use __git_ps1 on macOS. Linux should have it loaded
+# automatically.
+include $HOMEBREW_PATH/etc/bash_completion.d/git-prompt.sh
 
 if [ -n "$(declare -F __git_ps1)" ]; then
     export GIT_PS1_SHOWUPSTREAM="verbose name"
@@ -123,8 +126,6 @@ prompt_command () {
     # Print git branch name by __git_ps1 if available.
     if [ -n "$(declare -F __git_ps1)" ]; then
         PS1+="${GREEN}$(__git_ps1)"
-    else
-        PS1+="${GREEN}$(parse_git_branch)"
     fi
 
     # Append current Python's virtualenv name.
@@ -148,15 +149,11 @@ prompt_command () {
 PROMPT_COMMAND=prompt_command
 
 # Enable bash completion in interactive shells.
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    elif [ -n $"(type -p brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
-    fi
-fi
+include $HOMEBREW_PATH/etc/bash_completion
+
+# Use autojump if it's available.
+include /usr/share/autojump/autojump.sh
+include $HOMEBREW_PATH/etc/autojump.sh
 
 # Make the terminal more colorful.
 if [ "$TERM" == "xterm" ]; then
@@ -170,27 +167,6 @@ else
     alias h='ls --color=auto -F'
 fi
 
-# Use autojump if it's available.
-if [ -f /usr/share/autojump/autojump.sh ]; then
-    . /usr/share/autojump/autojump.sh
-elif [ -n "$(type -p brew)" ] && [ -f $(brew --prefix)/etc/autojump.sh ]; then
-    . $(brew --prefix)/etc/autojump.sh
-fi
-
-# Toggle hidden files shown/hidden on Mac OS X
-if [ "$(uname)" == "Darwin" ]; then
-    toggle_hidden() {
-        if [ "$(defaults read com.apple.finder AppleShowAllFiles)" == "TRUE" ]; then
-            echo "Hidden files have been hidden."
-            defaults write com.apple.finder AppleShowAllFiles FALSE
-        else
-            echo "Hidden files have been shown."
-            defaults write com.apple.finder AppleShowAllFiles TRUE
-        fi
-        killall Finder
-    }
-fi
-
 # Settings for Mozilla development.
 add_path ~/.mozbuild/android-sdk-macosx/platform-tools
 add_path ~/.mozbuild/android-sdk-macosx/tools
@@ -198,14 +174,10 @@ add_path ~/.mozbuild/git-cinnabar
 add_path ~/Projects/arcanist/bin
 add_path ~/Projects/moz-git-tools
 
-if [ -f ~/Projects/gecko/python/mach/bash-completion.sh ]; then
-    . ~/Projects/gecko/python/mach/bash-completion.sh
-fi
+include ~/Projects/gecko/python/mach/bash-completion.sh
 
 # Install via `pip install mozconfigwrapper`
-if [ -n "$(type -p mozconfigwrapper.sh)" ]; then
-    . $(type -p mozconfigwrapper.sh)
-fi
+include "$(type -p mozconfigwrapper.sh)"
 
 # Mach alias for gecko.
 alias mb='./mach build'
@@ -232,7 +204,6 @@ alias u='cd'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
 
 # Git aliases
 alias ga='git add'
@@ -262,7 +233,7 @@ alias gus='git reset'           # g'us' stands for unstage
 # Hg alias
 alias hlg='hg log -G'
 
-# Git alias completion
+# Git alias completion for Linux. macOS should have it loaded automatically.
 include /usr/share/bash-completion/completions/git
 if [ "$(declare -F __git_complete)" ]; then
     __git_complete ga _git_add
@@ -283,6 +254,4 @@ fi
 
 
 # Source my private bash script
-if [ -f ~/.bashrc_private ]; then
-    . ~/.bashrc_private
-fi
+include ~/.bashrc_private
