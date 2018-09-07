@@ -11,6 +11,11 @@ add_path () {
     done
 }
 
+# https://stackoverflow.com/a/10737906
+include () {
+    [[ -f "$1" ]] && source "$1"
+}
+
 add_path $HOME/bin
 add_path $HOME/.cargo/bin
 
@@ -258,6 +263,7 @@ alias gus='git reset'           # g'us' stands for unstage
 alias hlg='hg log -G'
 
 # Git alias completion
+include /usr/share/bash-completion/completions/git
 if [ "$(declare -F __git_complete)" ]; then
     __git_complete ga _git_add
     __git_complete gbr _git_branch
