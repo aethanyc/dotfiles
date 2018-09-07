@@ -119,7 +119,7 @@ prompt_command () {
     PS1+="${BOLD}${BLUE}\u@\h: ${MAGENTA}\w"
 
     # Append current mozconfig's name if in gecko.
-    if [ -n "$(type -p mozconfig)" ] && [ "$(basename $(pwd))" == "gecko" ]; then
+    if [ -n "$(type -p mozconfig)" ] && [[ "$(basename $(pwd))" =~ "gecko" ]]; then
         PS1+=" ${GREEN}($(basename $(mozconfig)))"
     fi
 
