@@ -25,6 +25,12 @@ add_path $HOME/bin
 add_path $HOME/.cargo/bin
 
 if [ "$(uname)" == "Darwin" ]; then
+    # Homebrew's install path, defaults to /usr/local.
+    export HOMEBREW_PATH=$(brew --prefix)
+
+    # Link Apps installed by `brew cask` to /Applications
+    export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
     # Toggle hidden files shown/hidden on Mac OS X
     toggle_hidden() {
         if [ "$(defaults read com.apple.finder AppleShowAllFiles)" == "TRUE" ]; then
@@ -73,12 +79,6 @@ shopt -s checkwinsize
 
 # Free Ctrl-s and Ctrl-q on terminal.
 stty -ixon -ixoff
-
-# Homebrew's install path, defaults to /usr/local.
-HOMEBREW_PATH=$(brew --prefix)
-
-# Link Apps installed by `brew cask` to /Applications
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
