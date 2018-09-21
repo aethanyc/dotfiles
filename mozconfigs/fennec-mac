@@ -4,3 +4,5 @@
 
 ac_add_options --with-android-sdk="$HOME/.mozbuild/android-sdk-macosx"
 
+# With the following java and javac:
+ac_add_options --with-java-bin-path="/Library/Java/Home/bin"
