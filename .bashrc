@@ -168,8 +168,13 @@ else
 fi
 
 # Settings for Mozilla development.
-add_path ~/.mozbuild/android-sdk-macosx/platform-tools
-add_path ~/.mozbuild/android-sdk-macosx/tools
+if [ "$(uname)" == "Darwin" ]; then
+    add_path ~/.mozbuild/android-sdk-macosx/platform-tools
+    add_path ~/.mozbuild/android-sdk-macosx/tools
+else
+    add_path ~/.mozbuild/android-sdk-linux/platform-tools
+    add_path ~/.mozbuild/android-sdk-linux/tools
+fi
 add_path ~/.mozbuild/git-cinnabar
 add_path ~/Projects/arcanist/bin
 add_path ~/Projects/moz-git-tools
