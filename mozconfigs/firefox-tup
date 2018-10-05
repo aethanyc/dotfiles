@@ -1,0 +1,11 @@
+# Build Firefox Desktop by using Tup
+# https://firefox-source-docs.mozilla.org/build/buildsystem/tup.html
+
+ac_add_options --with-ccache
+ac_add_options --enable-application=browser
+ac_add_options --enable-debug
+ac_add_options --disable-optimize
+
+export TUP="$HOME/.mozbuild/tup/tup"
+ac_add_options --enable-build-backends=Tup
+
