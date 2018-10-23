@@ -178,6 +178,7 @@ fi
 add_path ~/.mozbuild/git-cinnabar
 add_path ~/Projects/arcanist/bin
 add_path ~/Projects/moz-git-tools
+add_path ~/Projects/moz-phab
 
 include ~/Projects/gecko/python/mach/bash-completion.sh
 
