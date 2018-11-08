@@ -58,9 +58,9 @@ export HISTFILESIZE=20000
 # The number of commands to remember in the command  history
 export HISTSIZE=10000
 
-# ignoredups + ignorespace, i.e. ignore lines matching previous history and
-# lines which begins with a space.
-export HISTCONTROL=ignoreboth
+# Ignore lines matching previous history and lines which begins with a
+# space. `man bash` for details.
+export HISTCONTROL=ignoreboth:erasedups
 
 # Set a default editor
 export EDITOR="emacsclient -c -a emacs "
