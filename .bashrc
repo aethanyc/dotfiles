@@ -89,9 +89,8 @@ fi
 # automatically.
 include $HOMEBREW_PATH/etc/bash_completion.d/git-prompt.sh
 
-if [ -n "$(declare -F __git_ps1)" ]; then
-    export GIT_PS1_SHOWUPSTREAM="verbose name"
-fi
+# Show the current branch status comparing to the upstream.
+export GIT_PS1_SHOWUPSTREAM="verbose name"
 
 # Set a fancy prompt.
 prompt_command () {
