@@ -3,4 +3,3 @@
 . $HOME/.mozconfigs/browser-common
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox-opt
-mk_add_options "export RUSTC_WRAPPER=sccache" # cargo install sccache
