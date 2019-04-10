@@ -1,5 +1,3 @@
-# Build Firefox Desktop
-
 . $HOME/.mozconfigs/browser-common
 
 ac_add_options --enable-debug

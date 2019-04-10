@@ -1,0 +1,5 @@
+# Build Firefox Desktop on Mac
+
+. $HOME/.mozconfigs/browser-common-debug
+
+ac_add_options --with-macos-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk

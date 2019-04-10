@@ -1,0 +1,3 @@
+# Build Firefox Desktop on Linux
+
+. $HOME/.mozconfigs/browser-common-debug
