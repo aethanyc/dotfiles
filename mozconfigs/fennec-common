@@ -7,5 +7,5 @@ ac_add_options --with-ccache
 ac_add_options --enable-application=mobile/android
 ac_add_options --with-android-ndk="$HOME/.mozbuild/android-ndk-r15c"
 
-CC="/home/aethanyc/.mozbuild/clang/bin/clang"
-CXX="/home/aethanyc/.mozbuild/clang/bin/clang++"
+CC="$HOME/.mozbuild/clang/bin/clang"
+CXX="$HOME/.mozbuild/clang/bin/clang++"
