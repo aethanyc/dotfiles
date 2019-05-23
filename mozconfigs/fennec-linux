@@ -1,7 +1,0 @@
-# Build Firefox for Android on Linux
-
-. $HOME/.mozconfigs/fennec-common
-
-ac_add_options --with-android-sdk="$HOME/.mozbuild/android-sdk-linux"
-
-

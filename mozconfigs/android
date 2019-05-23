@@ -1,0 +1,6 @@
+# Build GeckoView/Firefox for Android
+
+. $HOME/.mozconfigs/android-common
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-android
+

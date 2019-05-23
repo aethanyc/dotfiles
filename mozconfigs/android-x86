@@ -1,0 +1,7 @@
+# Build GeckoView/Firefox for Android targeting x86
+
+. $HOME/.mozconfigs/android-common
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-android-x86
+ac_add_options --target=i686
+

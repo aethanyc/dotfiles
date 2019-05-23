@@ -1,11 +1,10 @@
-# Build Firefox for Android
+# Build GeckoView/Firefox for Android:
 
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-fennec
 mk_add_options AUTOCLOBBER=1
 
 ac_add_options --with-ccache
 ac_add_options --enable-application=mobile/android
-ac_add_options --with-android-ndk="$HOME/.mozbuild/android-ndk-r15c"
+ac_add_options --with-android-ndk="$HOME/.mozbuild/android-ndk-r17b"
 
 CC="$HOME/.mozbuild/clang/bin/clang"
 CXX="$HOME/.mozbuild/clang/bin/clang++"
