@@ -42,7 +42,10 @@ if [ "$(uname)" == "Darwin" ]; then
         fi
         killall Finder
     }
+fi
 
+# Emacs Settings
+if [ "$(uname)" == "Darwin" ]; then
     # Need makeinfo to build Emacs.
     # brew install texinfo
     add_path /usr/local/opt/texinfo/bin
@@ -50,6 +53,9 @@ if [ "$(uname)" == "Darwin" ]; then
     # Use Emacs in Emacs.app.
     add_path /Applications/Emacs.app/Contents/MacOS
     add_path /Applications/Emacs.app/Contents/MacOS/bin
+else
+    add_path ~/Projects/emacs/src
+    add_path ~/Projects/emacs/lib-src
 fi
 
 # The maximum number of lines contained in the history file.
