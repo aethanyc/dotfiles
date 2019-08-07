@@ -194,6 +194,7 @@ include "$(type -p mozconfigwrapper.sh)"
 alias mb='./mach build'
 alias mbb='./mach build binaries'
 alias mbf='./mach build faster'
+alias mcf='./mach clang-format'
 alias md='./mach package && ./mach install && ./mach run'
 alias mr='./mach run'
 alias mrl='./mach run -layoutdebug'
