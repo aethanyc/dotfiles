@@ -3,5 +3,5 @@
 . $HOME/.mozconfigs/android-common
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-android-x86
-ac_add_options --target=i686
+ac_add_options --target=x86_64
 
