@@ -1,8 +1,10 @@
 # Build Firefox Desktop
 
-. $HOME/.mozconfigs/browser-common
+. $HOME/.mozconfigs/firefox-common
 
 ac_add_options --enable-debug
 ac_add_options --disable-optimize
+ac_add_options --with-ccache
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox
+mk_add_options "export RUSTC_WRAPPER=sccache"

@@ -1,6 +1,0 @@
-mk_add_options AUTOCLOBBER=1
-
-ac_add_options --with-ccache
-ac_add_options --enable-application=browser
-
-mk_add_options "export RUSTC_WRAPPER=$HOME/.mozbuild/sccache/sccache"
