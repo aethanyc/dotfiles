@@ -12,28 +12,25 @@ git = true
 showfunc = true
 unified = 8
 [extensions]
-bzexport = ~/.mozbuild/version-control-tools/hgext/bzexport
-evolve =
-firefoxtree = ~/.mozbuild/version-control-tools/hgext/firefoxtree
 fsmonitor =
 histedit =
-mq =
-mqext = ~/.mozbuild/version-control-tools/hgext/mqext
-prompt = ~/Projects/hg-prompt/prompt.py
-purge =
-push-to-try = ~/.mozbuild/version-control-tools/hgext/push-to-try
-qimportbz = ~/.mozbuild/version-control-tools/hgext/qimportbz
 rebase =
-reviewboard = ~/.mozbuild/version-control-tools/hgext/reviewboard/client.py
 shelve =
 blackbox =
+absorb =
+evolve = ~/.mozbuild/evolve/hgext3rd/evolve
+clang-format = ~/.mozbuild/version-control-tools/hgext/clang-format
+js-format = ~/.mozbuild/version-control-tools/hgext/js-format
+push-to-try = ~/.mozbuild/version-control-tools/hgext/push-to-try
 [experimental]
 clonebundles = true
 graphshorten = true
 [alias]
 wip = log --graph --rev=wip --template=wip
+smart-annotate = annotate -w --skip ignored_changesets
 [revsetalias]
-wip = (parents(not public()) or not public() or . or (head() and branch(default))) and (not obsolete() or orphan()^) and not closed() and not (fxheads() - date(-90))
+wip = (parents(not public()) or not public() or . or (head() and branch(default))) and (not obsolete() or orphan()^) and not closed()
+ignored_changesets = desc("ignore-this-changeset") or extdata(get_ignored_changesets)
 [templates]
 wip = '{label("wip.branch", if(branches,"{branches} "))}{label(ifeq(graphnode,"x","wip.obsolete","wip.{phase}"),"{rev}:{node|short}")}{label("wip.user", " {author|user}")}{label("wip.tags", if(tags," {tags}"))}{label("wip.tags", if(fxheads," {fxheads}"))}{if(bookmarks," ")}{label("wip.bookmarks", if(bookmarks,bookmarks))}{label(ifcontains(rev, revset("parents()"), "wip.here"), " {desc|firstline}")}'
 [mqext]
@@ -58,3 +55,7 @@ wip.obsolete = none
 wip.public = bold red
 wip.tags = yellow
 wip.user = bold blue
+[rebase]
+experimental.inmemory = yes
+[extdata]
+get_ignored_changesets = shell:cat `hg root`/.hg-annotate-ignore-revs 2> /dev/null || true
