@@ -3,6 +3,7 @@
 	email = aethanyc@gmail.com
 [core]
 	whitespace = cr-at-eol,tab-in-indent
+	commentChar = ";"
 [color]
 	ui = true
 [i18n]
