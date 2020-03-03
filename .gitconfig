@@ -33,6 +33,6 @@
 	prune = true
 [cinnabar]
 	helper = ~/.mozbuild/git-cinnabar/git-cinnabar-helper
-	version-check = 1578344181
+	version-check = 1583260546
 [pull]
 	rebase = true
