@@ -3,6 +3,7 @@
 username = Ting-Yu Lin <tlin@mozilla.com>
 interface = curses
 tweakdefaults = true
+merge = emacs
 [bugzilla]
 username = tlin@mozilla.com
 [mozilla]
@@ -18,6 +19,7 @@ rebase =
 shelve =
 blackbox =
 absorb =
+strip =
 evolve = ~/.mozbuild/evolve/hgext3rd/evolve
 clang-format = ~/.mozbuild/version-control-tools/hgext/clang-format
 js-format = ~/.mozbuild/version-control-tools/hgext/js-format
@@ -60,3 +62,5 @@ wip.user = bold blue
 experimental.inmemory = yes
 [extdata]
 get_ignored_changesets = shell:cat `hg root`/.hg-annotate-ignore-revs 2> /dev/null || true
+[merge-tools]
+emacs.args = -q --eval "(ediff-merge-with-ancestor \""$local"\" \""$other"\" \""$base"\" nil \""$output"\")"
