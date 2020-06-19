@@ -181,9 +181,11 @@ else
     add_path ~/.mozbuild/android-sdk-linux/tools
 fi
 add_path ~/.mozbuild/git-cinnabar
+add_path ~/Projects/arcanist/bin
 add_path ~/Projects/moz-git-tools
 
 include ~/Projects/gecko/python/mach/bash-completion.sh
+include ~/Projects/hg/contrib/bash_completion
 
 # Install via `pip install mozconfigwrapper`
 include "$(type -p mozconfigwrapper.sh)"
