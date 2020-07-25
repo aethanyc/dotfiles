@@ -216,6 +216,9 @@ alias ha='h -hlA'
 alias hh='h -hlF'
 alias rm='rm -i'
 alias rp='rr replay -p'
+rpg() {
+    rr replay -p "$1" -g "$2"
+}
 alias u='cd'
 alias ..='cd ..'
 alias ...='cd ../..'
