@@ -253,6 +253,8 @@ alias gwip='glg origin/master..'
 
 # Hg alias
 alias hlg='hg log -G'
+alias hst='hg status'
+alias hw='hg wip'
 
 # Git alias completion for Linux. macOS should have it loaded automatically.
 include /usr/share/bash-completion/completions/git
