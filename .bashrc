@@ -74,6 +74,9 @@ export EDITOR="emacsclient -c -a emacs "
 # Tell GLOBAL to treat *.h files as a C++ source file
 export GTAGSFORCECPP=1
 
+# Tweak color, etc for ripgrep.
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
 # If set, the history list is appended to the file named by the value
 # of the HISTFILE variable when the shell exits, rather than
 # overwriting the file.
