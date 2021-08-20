@@ -184,8 +184,8 @@ else
     add_path ~/.mozbuild/android-sdk-linux/tools
 fi
 add_path ~/.mozbuild/git-cinnabar
-add_path ~/Projects/arcanist/bin
 add_path ~/Projects/moz-git-tools
+add_path ~/Projects/pernosco-submit
 
 include ~/Projects/gecko/python/mach/bash-completion.sh
 include ~/Projects/hg/contrib/bash_completion
