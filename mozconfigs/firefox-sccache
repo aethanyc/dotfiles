@@ -7,4 +7,3 @@ ac_add_options --disable-optimize
 ac_add_options --with-ccache=sccache
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox-sccache
-mk_add_options MOZ_MAKE_FLAGS="-j64"

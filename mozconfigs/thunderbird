@@ -1,0 +1,10 @@
+# Build Thunderbird
+
+mk_add_options AUTOCLOBBER=1
+
+ac_add_options --enable-application=comm/mail
+ac_add_options --with-app-basename=Thunderbird
+ac_add_options --enable-debug
+ac_add_options --disable-optimize
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-thunderbird
