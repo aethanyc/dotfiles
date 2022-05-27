@@ -7,6 +7,7 @@ pushd ~
 
 ln -is ${CURR_DIR}/.bash_profile
 ln -is ${CURR_DIR}/.bashrc
+ln -is ${CURR_DIR}/.zshrc
 ln -is ${CURR_DIR}/.gdbinit
 ln -is ${CURR_DIR}/.gitconfig
 ln -is ${CURR_DIR}/.hgrc
