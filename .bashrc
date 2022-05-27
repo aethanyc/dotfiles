@@ -25,7 +25,10 @@ add_path $HOME/bin
 add_path $HOME/.cargo/bin
 
 if [ "$(uname)" == "Darwin" ]; then
-    # Homebrew's install path, defaults to /usr/local.
+    # Import homebrow path
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # Homebrew's install path, defaults to /opt/homebrew/.
     export HOMEBREW_PATH=$(brew --prefix)
 
     # Link Apps installed by `brew cask` to /Applications
@@ -42,6 +45,9 @@ if [ "$(uname)" == "Darwin" ]; then
         fi
         killall Finder
     }
+
+    # Silence the default zsh warning for macOS 10.15 and after.
+    export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
 # Emacs Settings
@@ -233,7 +239,7 @@ alias ....='cd ../../..'
 alias ga='git add'
 alias gbk='git reset HEAD~'     # g'bk' stands for back
 alias gbkh='git reset --hard HEAD~'
-alias gbr='git branch -v --sort=comitterdate'
+alias gbr='git branch -v --sort=committerdate'
 alias gbrm='git branch -m'
 alias gbru='git branch -u origin/master || git branch -u origin/main'
 alias gca='git commit --amend'
