@@ -36,3 +36,5 @@
 	version-check = 1587072826
 [pull]
 	rebase = true
+[pager]
+	branch = false
