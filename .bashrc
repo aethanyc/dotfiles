@@ -185,6 +185,10 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
     add_path ~/.mozbuild/android-sdk-macosx/platform-tools
     add_path ~/.mozbuild/android-sdk-macosx/tools
+
+    # Export user-wide python packages installations.
+    # https://firefox-source-docs.mozilla.org/setup/macos_build.html#install-mercurial
+    add_path "$(python3 -m site --user-base)/bin"
 else
     add_path ~/.mozbuild/android-sdk-linux/platform-tools
     add_path ~/.mozbuild/android-sdk-linux/tools
