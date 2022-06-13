@@ -163,6 +163,7 @@ prompt_command () {
 PROMPT_COMMAND=prompt_command
 
 # Enable bash completion in interactive shells.
+# $ brew install bash-completion
 include $HOMEBREW_PATH/etc/bash_completion
 
 # Use autojump if it's available.
