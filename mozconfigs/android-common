@@ -4,4 +4,3 @@ mk_add_options AUTOCLOBBER=1
 
 ac_add_options --with-ccache
 ac_add_options --enable-application=mobile/android
-ac_add_options --with-java-bin-path=/usr/lib/jvm/java-8-openjdk-amd64/bin

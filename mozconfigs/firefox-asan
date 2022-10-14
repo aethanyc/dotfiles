@@ -8,25 +8,25 @@ mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox-asan
 # Enable ASan specific code and build workarounds
 ac_add_options --enable-address-sanitizer
 
-# Add ASan to our compiler flags
-export CFLAGS="-fsanitize=address -Dxmalloc=myxmalloc -fPIC"
-export CXXFLAGS="-fsanitize=address -Dxmalloc=myxmalloc -fPIC"
-
-# Additionally, we need the ASan flag during linking. Normally, our C/CXXFLAGS would
-# be used during linking as well but there is at least one place in our build where
-# our CFLAGS are not added during linking.
-# Note: The use of this flag causes Clang to automatically link the ASan runtime :)
-export LDFLAGS="-fsanitize=address"
-
 # These three are required by ASan
 ac_add_options --disable-jemalloc
 ac_add_options --disable-crashreporter
-ac_add_options --disable-elf-hack
+# ac_add_options --disable-elf-hack
 
 # Keep symbols to symbolize ASan traces later
 export MOZ_DEBUG_SYMBOLS=1
 ac_add_options --enable-debug-symbols
 ac_add_options --disable-install-strip
 
-# ASan specific options on Linux
-ac_add_options --enable-valgrind
+# Settings for an opt build (preferred)
+# The -gline-tables-only ensures that all the necessary debug information for ASan
+# is present, but the rest is stripped so the resulting binaries are smaller.
+ac_add_options --enable-optimize="-O2 -gline-tables-only"
+ac_add_options --disable-debug
+
+# Settings for a debug+opt build
+#ac_add_options --enable-optimize
+#ac_add_options --enable-debug
+
+# MacOSX only: Uncomment and adjust this path to match your SDK
+# ac_add_options --with-macos-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk

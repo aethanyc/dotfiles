@@ -1,4 +1,4 @@
-# Build Firefox Desktop
+# Build Firefox Desktop Opt
 
 . $HOME/.mozconfigs/firefox-common
 
