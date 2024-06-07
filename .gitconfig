@@ -10,6 +10,7 @@
 	filesEncoding = utf-8
 [branch]
 	autosetuprebase = always
+	sort = -committerdate
 [alias]
 	co = checkout
 	br = branch
@@ -33,7 +34,7 @@
 	prune = true
 [cinnabar]
 	helper = ~/.mozbuild/git-cinnabar/git-cinnabar-helper
-	version-check = 1587072826
+	version-check = 1717780140
 [pull]
 	rebase = true
 [pager]
