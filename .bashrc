@@ -217,6 +217,7 @@ alias mr='./mach run'
 alias mrrr='./mach run --debugger=rr --debugger-args=-M'
 alias mrl='./mach run --layoutdebug'
 alias mrlrr='./mach run --layoutdebug --debugger=rr --debugger-args=-M'
+alias mrlpc='./mach run --layoutdebug --debugger=pernosco-record'
 
 # My aliases
 alias aptitude='sudo aptitude'
