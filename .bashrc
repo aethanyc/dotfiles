@@ -22,6 +22,7 @@ include () {
 }
 
 add_path $HOME/bin
+add_path $HOME/.local/bin
 add_path $HOME/.cargo/bin
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -201,8 +202,9 @@ add_path ~/Projects/pernosco-submit
 include ~/Projects/gecko/python/mach/bash-completion.sh
 include ~/Projects/hg/contrib/bash_completion
 
-# Install via `pip install mozconfigwrapper`
-include "$(type -p mozconfigwrapper.sh)"
+# Install via `pip install mozconfigwrapper` or `pipx install mozconfigwrapper`
+# on some Linux system.
+source "$(type -p mozconfigwrapper.sh)"
 
 # Mach alias for gecko.
 alias mb='./mach build'
