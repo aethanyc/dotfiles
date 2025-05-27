@@ -269,7 +269,7 @@ alias gst='git status'
 alias gsu='git submodule update --init'
 alias gsur='git submodule update --init --recursive'
 alias gus='git reset'           # g'us' stands for unstage
-alias gwip='glg origin/master..'
+alias gwip='glg origin/main..'
 
 # Hg alias
 alias hlg='hg log -G'
