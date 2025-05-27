@@ -209,7 +209,7 @@ source "$(type -p mozconfigwrapper.sh)"
 # Mach alias for gecko.
 alias mb='./mach build'
 alias mbb='./mach build binaries'
-alias mbdb='./mach build-backend -b CompileDB'
+alias mbdb='./mach build-backend -b Clangd'
 alias mbf='./mach build faster'
 alias mcf='./mach clang-format'
 alias md='./mach package && ./mach install && ./mach run'
