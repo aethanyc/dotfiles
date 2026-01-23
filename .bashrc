@@ -247,7 +247,7 @@ alias ....='cd ../../..'
 alias ga='git add'
 alias gbk='git reset HEAD~'     # g'bk' stands for back
 alias gbkh='git reset --hard HEAD~'
-alias gbr='git branch -v --sort=committerdate'
+alias gbr='git branch -v --sort=committerdate --format="%(align:left,35) %(refname:short)%(end) %(objectname:short) [%(committerdate:relative)] %(upstream:track) %(subject)"'
 alias gbrm='git branch -m'
 alias gbru='git branch -u origin/main || git branch -u origin/master'
 alias gca='git commit --amend'
