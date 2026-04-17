@@ -39,3 +39,5 @@
 	rebase = true
 [pager]
 	branch = false
+[maintenance]
+	repo = ~/Projects/gecko
