@@ -26,14 +26,18 @@ add_path $HOME/.local/bin
 add_path $HOME/.cargo/bin
 
 if [ "$(uname)" == "Darwin" ]; then
-    # Import homebrow path
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    if type -p brew > /dev/null; then
+        # Import homebrew path
+        eval "$(brew shellenv bash)"
 
-    # Homebrew's install path, defaults to /opt/homebrew/.
-    export HOMEBREW_PATH=$(brew --prefix)
+        # Homebrew's install path, defaults to /opt/homebrew/.
+        export HOMEBREW_PATH=$(brew --prefix)
 
-    # Link Apps installed by `brew cask` to /Applications
-    export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+        # Link Apps installed by `brew cask` to /Applications
+        export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+    else
+        echo "Warning: Homebrew is not installed."
+    fi
 
     # Toggle hidden files shown/hidden on Mac OS X
     toggle_hidden() {
@@ -204,7 +208,11 @@ include ~/Projects/hg/contrib/bash_completion
 
 # Install via `pip install mozconfigwrapper` or `pipx install mozconfigwrapper`
 # on some Linux system.
-source "$(type -p mozconfigwrapper.sh)"
+if type -p mozconfigwrapper.sh > /dev/null; then
+    source "$(type -p mozconfigwrapper.sh)"
+else
+    echo "Warning: mozconfigwrapper.sh is not installed."
+fi
 
 # Mach alias for gecko.
 alias mb='./mach build'
