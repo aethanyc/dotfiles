@@ -175,6 +175,14 @@ include $HOMEBREW_PATH/etc/bash_completion
 include /usr/share/autojump/autojump.sh
 include $HOMEBREW_PATH/etc/autojump.sh
 
+# Use zoxide if it's available.
+if type -p zoxide > /dev/null; then
+    eval "$(zoxide init bash)"
+    alias j='z'
+else
+    echo "Warning: zoxide is not installed."
+fi
+
 # Make the terminal more colorful.
 if [ "$TERM" == "xterm" ]; then
     TERM=xterm-256color
