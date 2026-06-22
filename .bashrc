@@ -112,6 +112,10 @@ include $HOMEBREW_PATH/etc/bash_completion.d/git-prompt.sh
 # Show the current branch status comparing to the upstream.
 export GIT_PS1_SHOWUPSTREAM="verbose name"
 
+# Use English as the language of the terminal output.
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 # Set a fancy prompt.
 prompt_command () {
     # Reference:
