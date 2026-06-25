@@ -175,10 +175,6 @@ PROMPT_COMMAND=prompt_command
 # $ brew install bash-completion
 include $HOMEBREW_PATH/etc/bash_completion
 
-# Use autojump if it's available.
-include /usr/share/autojump/autojump.sh
-include $HOMEBREW_PATH/etc/autojump.sh
-
 # Use zoxide if it's available.
 if type -p zoxide > /dev/null; then
     eval "$(zoxide init bash)"
